@@ -13,4 +13,4 @@ cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --
 
 ## List of Examples
 
-- [ X ] beam.rs (caused by allocating more than 512KB to one slice)
+- [X] beam.rs (caused by allocating more than 512KB to one slice)

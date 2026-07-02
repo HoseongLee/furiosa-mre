@@ -1,0 +1,16 @@
+# Minimal Reproducible Example
+
+Every examples has the error code inside the source code
+
+## Installation
+
+1. Install [furiosa-opt-preview](https://github.com/furiosa-ai/furiosa-opt-preview)
+2. Inside furiosa-opt-preview clone this repo
+3. run
+```
+cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --dump-schedule transformer.json
+```
+
+## List of Examples
+
+- [ ] beam.rs

@@ -1,0 +1,19 @@
+[package]
+name = "mre"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+# `cargo furiosa-opt` sets `--cfg backend="..."`. Declare the known values so the
+# bare `cargo build` / `cargo check` paths don't emit unexpected-cfg warnings.
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(backend, values("simulation", "emulation", "npu", "typecheck"))'] }
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+furiosa-opt-std = { path = "../furiosa-opt-std" }
+tokio = { version = "1.29", features = ["rt", "rt-multi-thread", "sync", "macros"] }

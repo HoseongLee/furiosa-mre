@@ -3,6 +3,7 @@
 #![register_tool(furiosa_opt)]
 
 pub mod beam;
+pub mod tile;
 
 use furiosa_opt_std::prelude::*;
 

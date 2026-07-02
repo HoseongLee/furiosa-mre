@@ -15,3 +15,4 @@ cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --
 
 - [X] beam.rs (caused by allocating more than 512KB to one slice)
 - [ ] tile.rs
+- [ ] slice_padding.rs

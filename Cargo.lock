@@ -415,7 +415,7 @@ checksum = "1d674e81391d1e1ab681a28d99df07927c6d4aa5b027d7da16ba32d1d21ecd99"
 
 [[package]]
 name = "furiosa-mapping"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "abi_stable",
  "furiosa-mapping-macro",
@@ -424,7 +424,7 @@ dependencies = [
 
 [[package]]
 name = "furiosa-mapping-macro"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "lalrpop",
  "lalrpop-util",
@@ -435,7 +435,7 @@ dependencies = [
 
 [[package]]
 name = "furiosa-mapping-types"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "abi_stable",
  "furiosa-mapping-macro",
@@ -448,7 +448,7 @@ dependencies = [
 
 [[package]]
 name = "furiosa-opt-lower"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "abi_stable",
  "furiosa-mapping",
@@ -457,7 +457,7 @@ dependencies = [
 
 [[package]]
 name = "furiosa-opt-lower-types"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "abi_stable",
  "furiosa-mapping-types",
@@ -467,7 +467,7 @@ dependencies = [
 
 [[package]]
 name = "furiosa-opt-macro"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -476,7 +476,7 @@ dependencies = [
 
 [[package]]
 name = "furiosa-opt-std"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
  "abi_stable",
  "anstream",
@@ -494,6 +494,7 @@ dependencies = [
  "ndarray",
  "num-traits",
  "rand",
+ "rayon",
  "safetensors",
  "serde",
  "serde_json",

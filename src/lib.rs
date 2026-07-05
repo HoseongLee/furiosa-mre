@@ -5,6 +5,7 @@
 pub mod beam;
 pub mod dm_to_dm;
 pub mod slice_padding;
+pub mod slice_padding_v2;
 pub mod tile;
 
 use furiosa_opt_std::prelude::*;

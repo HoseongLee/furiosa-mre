@@ -18,3 +18,4 @@ cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --
 - [ ] slice_padding.rs
 - [X] dm_to_dm.rs (fixed in 0.4.0)
 - [ ] slice_padding_v2.rs
+- [ ] multiuse.rs

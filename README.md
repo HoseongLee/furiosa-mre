@@ -21,3 +21,4 @@ cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --
 - [ ] multiuse.rs
 - [ ] typecheck_collect_kernel.rs (Compiles, but does not pass typecheck (can be checked via `typecheck_collect`))
 - [ ] tile_hbm.rs
+- [ ] clustered_tile.rs

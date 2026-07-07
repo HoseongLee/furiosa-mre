@@ -3,8 +3,6 @@ use furiosa_opt_std::prelude::*;
 use crate::{H, L};
 use crate::Chip;
 
-axes![X = 19];
-
 /*
 
 failed to translate vISA to IR: verification of operator failed:

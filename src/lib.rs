@@ -3,6 +3,7 @@
 #![register_tool(furiosa_opt)]
 
 pub mod beam;
+pub mod cluster_tile;
 pub mod dm_to_dm;
 pub mod multiuse;
 pub mod slice_padding;

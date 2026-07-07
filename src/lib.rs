@@ -4,6 +4,7 @@
 
 pub mod beam;
 pub mod cluster_tile;
+pub mod cluster_tile_v2;
 pub mod dm_to_dm;
 pub mod multiuse;
 pub mod slice_padding;

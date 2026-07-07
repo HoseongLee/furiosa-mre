@@ -7,13 +7,24 @@ axes![X = 19];
 
 /*
 
-error: expected an axis view offset, i.e. usize or a scalar variable
-  --> src/tile.rs:19:42
-   |
-19 | ...p_weight.view().tile::<m![L], 256, m![L = 256 # 4864, H]>(i << 8);
-   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+failed to translate vISA to IR: verification of operator failed:
+IndexAccess
+axis: L_1, window_size: 1
+name: 
 
-error: could not compile `mre` (lib) due to 1 previous error
+input tensors: 2
+  input T0: []|[L_1=4864:896, H_1=896:1], 8716288 B, bf16, dram
+  source: unknown
+  input T1: [Broadcast=1]|[Broadcast=2]|[Dummy=4]|[], 32 B, raw_i32, spm
+  source: unknown
+  total bytes: 8716320
+output tensors: 1
+  output T2: []|[L_1=256:896, H_1=896:1], 458752 B, bf16, dram
+  source: unknown
+  total bytes: 458752
+
+Caused by:
+    Output shape mismatch for IndexAccess
 
 */
 

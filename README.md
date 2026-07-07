@@ -20,3 +20,4 @@ cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --
 - [ ] slice_padding_v2.rs
 - [ ] multiuse.rs
 - [ ] typecheck_collect_kernel.rs (Compiles, but does not pass typecheck (can be checked via `typecheck_collect`))
+- [ ] tile_hbm.rs

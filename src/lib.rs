@@ -8,6 +8,7 @@ pub mod multiuse;
 pub mod slice_padding;
 pub mod slice_padding_v2;
 pub mod tile;
+pub mod tile_hbm;
 pub mod typecheck_collect_kernel;
 
 use furiosa_opt_std::prelude::*;

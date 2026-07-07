@@ -14,6 +14,10 @@ unexpected_cfgs = { level = "warn", check-cfg = ['cfg(backend, values("simulatio
 [lib]
 path = "src/lib.rs"
 
+[[bin]]
+name = "typecheck_collect"
+path = "src/typecheck_collect.rs"
+
 [dependencies]
 furiosa-opt-std = { path = "../furiosa-opt-std" }
 tokio = { version = "1.29", features = ["rt", "rt-multi-thread", "sync", "macros"] }

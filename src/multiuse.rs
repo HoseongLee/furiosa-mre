@@ -1,7 +1,8 @@
 use furiosa_opt_std::prelude::*;
 
-use crate::{D, N, S_decode as S};
-use crate::{Chip, Cluster};
+type Chip = m![1];
+type Cluster = m![1 # 2];
+axes![D = 64, G = 7, H = 896, L = 4864, N = 2, P = 128, Q = 896, S = 128];
 
 /*
 thread 'rustc' (67257) panicked at crates/npu-compiler/crates/scheduler/src/common/operator_schedule_graph.rs:571:39:

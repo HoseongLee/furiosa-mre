@@ -1,0 +1,11 @@
+digraph DAG {
+    compound=true;
+    rankdir="TB";
+    subgraph cluster_c_0 {
+        label="edf";
+        _0_0 [
+            label="Node0: NPU"
+            shape="box"
+        ];
+    }
+}

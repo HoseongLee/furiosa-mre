@@ -1,9 +1,7 @@
 use furiosa_opt_std::prelude::*;
 
-use crate::{H, L};
-use crate::Chip;
-
-axes![X = 19];
+type Chip = m![1];
+axes![D = 64, G = 7, H = 896, L = 4864, N = 2, P = 128, Q = 896, S = 128];
 
 /*
 
@@ -22,7 +20,7 @@ pub fn forward(
     ctx: &mut Context,
     up_weight: &HbmTensor<bf16, Chip, m![L, H]>,
 ) {
-    for i in 0..X::SIZE {
+    for i in 0..1 {
         let up_weight = up_weight.view().tile::<m![L], 256, m![L = 256 # 4864, H]>(i << 8);
         // let up_weight: DmTensor<bf16, Chip, Cluster, m![S / 8, L = 256 / 16], m![L = 256 % 16, H]> = up_weight.to_dm(&mut ctx.tdma);
     }

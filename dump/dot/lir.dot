@@ -1,0 +1,41 @@
+digraph DAG {
+    compound=true;
+    rankdir="TB";
+    subgraph cluster_c_0 {
+        label="lir";
+        subgraph cluster_c_0_0 {
+            label="execution";
+            _0_0_0 [
+                label="T0]  S:0x00000000 \lbf16\l[ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_8=16] | H: [Q_128=7, S_decode_1=8, Q_1=8] ] (8)\lno buffer\lsram\lname: \lsource: unknown\l"
+                shape="box"
+            ];
+            _0_0_1 [
+                label="T1]  S:0x00000400 \lbf16\l[ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_64=2, [[Q_128=7]+1]=8] | H: [S_decode_1=8, Q_1=64] ] (8)\lno buffer\lsram\lname: \lsource: unknown\l"
+                shape="box"
+            ];
+            _0_0_2 [
+                label=<<TABLE BGCOLOR='#addef4de' BORDER='0' CELLBORDER='1' CELLSPACING='0'>
+        
+        <TR><TD colspan='1'>O0] Scratchpad<BR ALIGN='left'/>name: Scratchpad#O0<BR ALIGN='left'/><BR ALIGN='left'/></TD></TR>
+        
+        <TR><TD colspan='1' PORT='Output0'>Output0</TD></TR>
+        </TABLE>>
+                xlabel="458752B"
+                shape="plaintext"
+            ];
+            _0_0_3 [
+                label=<<TABLE BGCOLOR='#10125063' BORDER='0' CELLBORDER='1' CELLSPACING='0'>
+        <TR><TD colspan='1' PORT='Input0'>Input0</TD></TR>
+        <TR><TD colspan='1'>O1] Renegade::TuExec<BR ALIGN='left'/>[] | [Dummy=2] | [S_decode_8=16, Q_8=16] | [Q_128=7, S_decode_1=8, Q_1=8] | [](1)<BR ALIGN='left'/>fetch_sequencer: 0+[None=64:448, Q_8=7:64, S_decode_1=8:8, None=16:8, Q_1=8:1]<BR ALIGN='left'/>fetch_size: 8<BR ALIGN='left'/><BR ALIGN='left'/>fetch_network:<BR ALIGN='left'/>  broadcast_kind: InterTranspose { dim0_volume: 1, dim1_volume: 8, dim0_chunk_volume: 8 }, bf16<BR ALIGN='left'/>   input: [ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_8=16] | H: [[[Q_128=7]+1]=8, S_decode_1=8, [[Q_1=8]+8]=16] ] (1)<BR ALIGN='left'/>  stream: [ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_64=2, [[Q_128=7]+1]=8] | H: [S_decode_1=8, Q_8=8, &lt;fn_packet&gt;[[Q_1=8]+8]=16&lt;fn_packet&gt;] ] (1)<BR ALIGN='left'/>  output: [ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_64=2, [[Q_128=7]+1]=8] | H: [S_decode_1=8, Q_8=8, [[Q_1=8]+8]=16] ] (16), (channels: 1 = flit_length: 16)<BR ALIGN='left'/><BR ALIGN='left'/>commit_unit:<BR ALIGN='left'/>   input: [ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_64=2, [[Q_128=7]+1]=8] | H: [S_decode_1=8, Q_8=8, [[Q_1=8]+8]=16] ] (16)<BR ALIGN='left'/>  commit_in_size: 16B (=8EA)<BR ALIGN='left'/>  sliced: [ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_64=2, [[Q_128=7]+1]=8] | H: [S_decode_1=8, Q_8=8, Q_1=8] ] (1)<BR ALIGN='left'/>  output: [ Chip: [] | C: [[[]+1]=2] | P: [S_decode_8=16, Q_64=2, [[Q_128=7]+1]=8] | H: [S_decode_1=8, Q_1=64] ] (1)<BR ALIGN='left'/>  commit_projection: 0+[None=64:8, None=8:1]<BR ALIGN='left'/><BR ALIGN='left'/>context: Sub<BR ALIGN='left'/><BR ALIGN='left'/><BR ALIGN='left'/>name: RenegadeCommand#O1<BR ALIGN='left'/><BR ALIGN='left'/></TD></TR>
+        
+        <TR><TD colspan='1' PORT='Output0'>Output0</TD></TR>
+        </TABLE>>
+                xlabel="786432B"
+                shape="plaintext"
+            ];
+            _0_0_2:Output0 -> _0_0_0;
+            _0_0_0 -> _0_0_3:Input0;
+            _0_0_3:Output0 -> _0_0_1;
+        }
+    }
+}

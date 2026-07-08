@@ -23,3 +23,4 @@ cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --
 - [ ] tile_hbm.rs
 - [ ] clustered_tile.rs
 - [ ] clustered_tile_v2.rs
+- [ ] switch_hang.rs (Hangs when ran in RNGD)

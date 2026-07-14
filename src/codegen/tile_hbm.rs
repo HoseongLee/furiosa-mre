@@ -1,14 +1,14 @@
 use furiosa_opt_std::prelude::*;
 
 type Chip = m![1];
-axes![D = 64, G = 7, H = 896, L = 4864, N = 2, P = 128, Q = 896, S = 128];
+axes![H = 896, L = 4864];
 
 /*
 
 failed to translate vISA to IR: verification of operator failed:
 IndexAccess
 axis: L_1, window_size: 1
-name: 
+name:
 
 input tensors: 2
   input T0: []|[L_1=4864:896, H_1=896:1], 8716288 B, bf16, dram
@@ -27,9 +27,6 @@ Caused by:
 */
 
 #[device(chip = 1)]
-pub fn forward(
-    ctx: &mut Context,
-    up_weight: &HbmTensor<bf16, Chip, m![L, H]>,
-) {
+pub fn forward(ctx: &mut Context, up_weight: &HbmTensor<bf16, Chip, m![L, H]>) {
     let up_weight = up_weight.view().tile::<m![L], 256, m![L = 256 # 4864, H]>(0);
 }

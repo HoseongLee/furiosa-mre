@@ -8,19 +8,25 @@ Every examples has the error code inside the source code
 2. Inside furiosa-opt-preview clone this repo
 3. run
 ```
-cargo furiosa-opt compiler build --device-function {FILENAME}::{FUNCTIONNAME} --dump-schedule transformer.json
+cargo furiosa-opt compile
 ```
 
-## List of Examples
+## List of Examples 
+
+### Compile Errors
+tested on snapshot-6a7d3377
 
 - [X] beam.rs (caused by allocating more than 512KB to one slice)
-- [ ] tile.rs
-- [ ] slice_padding.rs
 - [X] dm_to_dm.rs (fixed in 0.4.0)
-- [ ] slice_padding_v2.rs
+- [ ] tile_index_evaluation.rs
+- [ ] padding_in_slice.rs
+- [ ] padding_in_slice_v2.rs
 - [ ] multiuse.rs
-- [ ] typecheck_collect_kernel.rs (Compiles, but does not pass typecheck (can be checked via `typecheck_collect`))
 - [ ] tile_hbm.rs
-- [ ] clustered_tile.rs
-- [ ] clustered_tile_v2.rs
-- [ ] switch_hang.rs (Hangs when ran in RNGD)
+- [ ] cluster_tile.rs
+- [ ] cluster_tile_v2.rs
+- [ ] padding_in_lane.rs
+- [ ] empty_loop.rs
+
+### Hang
+- [ ] switching_padding_into_slice.rs

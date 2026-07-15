@@ -6,7 +6,8 @@ Every examples has the error code inside the source code
 
 1. Install [furiosa-opt-preview](https://github.com/furiosa-ai/furiosa-opt-preview)
 2. Inside furiosa-opt-preview clone this repo
-3. run
+3. Select which test to run by enabling them in src/codegen/mod.rs file
+4. run
 ```
 cargo furiosa-opt compile
 ```
@@ -28,6 +29,7 @@ tested on snapshot-6a7d3377
 - [ ] padding_in_lane.rs
 - [ ] empty_loop.rs
 - [ ] large_loop.rs
+- [ ] tile_hbm_index.rs
 
 ### Hang
 - [ ] switching_padding_into_slice.rs

@@ -18,11 +18,7 @@ type Cluster = m![1 # 2];
 type Slice = m![W2 / 4 # 256];
 
 #[device(chip = 1)]
-pub fn forward(
-    ctx: &mut Context,
-    input: &HbmTensor<bf16, Chip, m![H]>,
-    weight: &HbmTensor<bf16, Chip, m![W1, W2, H]>,
-) {
+pub fn forward(ctx: &mut Context, input: &HbmTensor<bf16, Chip, m![H]>, weight: &HbmTensor<bf16, Chip, m![W1, W2, H]>) {
     let input: DmTensor<bf16, Chip, Cluster, Slice, m![H]> = input.to_dm(&mut ctx.tdma);
     let input_trf: TrfTensor<bf16, Chip, Cluster, Slice, m![1], m![H]> = ctx
         .sub

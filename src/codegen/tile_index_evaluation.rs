@@ -15,6 +15,11 @@ error: could not compile `mre` (lib) due to 1 previous error
 
 */
 
+/*
+Conditions required to reproduce this error
+1. Using an expression that is not the loop varient or a const as the tile index in a loop
+*/
+
 #[device(chip = 1)]
 pub fn forward(ctx: &mut Context, up_weight: &HbmTensor<bf16, Chip, m![L, H]>) {
     for i in 0..1 {

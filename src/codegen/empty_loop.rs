@@ -11,6 +11,5 @@ Conditions required to reproduce this error
 
 #[device(chip = 1)]
 pub fn forward(ctx: &mut Context) {
-   for _ in 0..1 {
-   }
+    for _ in 0..1 {}
 }

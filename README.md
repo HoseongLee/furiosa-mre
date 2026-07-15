@@ -27,6 +27,7 @@ tested on snapshot-6a7d3377
 - [ ] cluster_tile_v2.rs
 - [ ] padding_in_lane.rs
 - [ ] empty_loop.rs
+- [ ] large_loop.rs
 
 ### Hang
 - [ ] switching_padding_into_slice.rs

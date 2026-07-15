@@ -12,7 +12,8 @@ error: furiosa-opt: codegen::padding_in_lane::forward: visa: StoTrf: kernel-decl
 
 /*
 Conditions required to reproduce this error
-1. S is not 8
+1. If S is 4, 8, 16 then it works
+2. Different error when S is 3
  */
 
 axes![S = 9, T = 128];

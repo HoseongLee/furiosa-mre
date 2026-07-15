@@ -26,6 +26,11 @@ Caused by:
 
 */
 
+/*
+Conditions required to reproduce this error
+1. HbmTensor tile load/write with the tiled index not being the outermost axis and the tile size not being 1
+*/
+
 #[device(chip = 1)]
 pub fn forward(ctx: &mut Context, up_weight: &HbmTensor<bf16, Chip, m![L, H]>) {
     let up_weight = up_weight.view().tile::<m![L], 256, m![L = 256 # 4864, H]>(0);

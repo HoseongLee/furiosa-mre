@@ -9,6 +9,11 @@ thread 'rustc' (67257) panicked at crates/npu-compiler/crates/scheduler/src/comm
 HashMap::index: invalid key
 */
 
+/*
+Conditions required to reproduce this error
+1. Passing a DmTensor multiple times as reference to functions
+ */
+
 fn test(ctx: &mut Context, t: &DmTensor<f32, Chip, Cluster, m![N, S], m![D]>) {
     let _vrf: VrfTensor<f32, Chip, Cluster, m![N, S], m![D]> = ctx
         .sub

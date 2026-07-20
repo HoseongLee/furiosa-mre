@@ -2,4 +2,6 @@
 #![feature(register_tool)]
 #![register_tool(furiosa_opt)]
 
+pub mod behavior;
 mod codegen;
+mod scheduler;

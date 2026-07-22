@@ -23,7 +23,7 @@ Conditions required to reproduce this error
 #[device(chip = 1)]
 pub fn forward(ctx: &mut Context, up_weight: &HbmTensor<bf16, Chip, m![L, H]>) {
     for i in 0..1 {
-        let up_weight = up_weight.view().tile::<m![L], 256, m![L = 256 # 4864, H]>(i << 8);
+        let up_weight = up_weight.view().tile::<m![L], 256, m![L = 256 # 4864, H]>(8 * i);
         // let up_weight: DmTensor<bf16, Chip, Cluster, m![S / 8, L = 256 / 16], m![L = 256 % 16, H]> = up_weight.to_dm(&mut ctx.tdma);
     }
 }

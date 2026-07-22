@@ -25,7 +25,7 @@ pub fn forward(ctx: &mut Context, input: &HbmTensor<bf16, Chip, m![S, H]>, weigh
     let weight: DmTensor<bf16, Chip, Cluster, SliceUG, m![L % 48, H]> = weight.to_dm(&mut ctx.tdma);
 
     for i in 0..5 {
-        let weight_tile = weight.view().tile::<m![L % 48], 8, m![L % 48 = 8 # 48, H]>(i << 3);
+        let weight_tile = weight.view().tile::<m![L % 48], 8, m![L % 48 = 8 # 48, H]>(8 * i);
         let weight_trf: TrfTensor<bf16, Chip, Cluster, SliceUG, m![L % 48 = 8], m![H]> = ctx
             .sub
             .begin(weight_tile)
@@ -37,7 +37,7 @@ pub fn forward(ctx: &mut Context, input: &HbmTensor<bf16, Chip, m![S, H]>, weigh
             .begin(x.view())
             .fetch::<m![S % 64, H / 16], m![H % 16]>()
             .collect::<m![S % 64, H / 16], m![H % 16]>()
-            .contract_outer::<m![S % 64, H / 32], m![H % 32], _, _>(&weight_trf)
+            .contract_outer::<m![S % 64, H / 32], m![H % 32], _, _, _>(&weight_trf)
             .contract_packet::<m![1]>()
             .contract_time::<m![S % 64]>()
             .contract_lane::<m![S % 64], m![L % 48 = 8]>(LaneMode::Interleaved)
@@ -46,7 +46,7 @@ pub fn forward(ctx: &mut Context, input: &HbmTensor<bf16, Chip, m![S, H]>, weigh
             .commit_view(
                 result
                     .view_mut()
-                    .tile::<m![L % 48], 8, m![S % 64, L % 48 = 8 #{!} 48]>(i << 3),
+                    .tile::<m![L % 48], 8, m![S % 64, L % 48 = 8 #{!} 48]>(8 * i),
             );
     }
 
@@ -62,7 +62,7 @@ pub fn forward(ctx: &mut Context, input: &HbmTensor<bf16, Chip, m![S, H]>, weigh
         .begin(x.view())
         .fetch::<m![S % 64, H / 16], m![H % 16]>()
         .collect::<m![S % 64, H / 16], m![H % 16]>()
-        .contract_outer::<m![S % 64, H / 32], m![H % 32], _, _>(&weight_trf)
+        .contract_outer::<m![S % 64, H / 32], m![H % 32], _, _, _>(&weight_trf)
         .contract_packet::<m![1]>()
         .contract_time::<m![S % 64]>()
         .contract_lane::<m![S % 64], m![L % 48 = 8]>(LaneMode::Interleaved)

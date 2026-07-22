@@ -39,7 +39,7 @@ pub fn forward(ctx: &mut Context, input: &HbmTensor<bf16, Chip, m![H]>, weight: 
             .begin(weight_dm.view())
             .fetch::<m![W2 % 4, H / 16], m![H % 16]>()
             .collect::<m![W2 % 4, H / 16], m![H % 16]>()
-            .contract_outer::<m![W2 % 4, H / 32], m![H % 32], _, _>(&input_trf)
+            .contract_outer::<m![W2 % 4, H / 32], m![H % 32], _, _, _>(&input_trf)
             .contract_packet::<m![1]>()
             .contract_time::<m![W2 % 4]>()
             .contract_lane::<m![W2 % 4], m![1 # 8]>(LaneMode::Interleaved)
